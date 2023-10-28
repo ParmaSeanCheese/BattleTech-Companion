@@ -1,13 +1,19 @@
 package com.SeanPersonal.BattletechCompanion.models;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import java.util.List;
 
+@Entity
 public class BattleMech extends AbstractEntity{
 
     private String name;
 
+    @ManyToMany
     private List<Weapon> weaponList;
 
+    @OneToOne
     private Pilot cockpit;
 
     private int armorH;
@@ -41,6 +47,7 @@ public class BattleMech extends AbstractEntity{
     private int structureRT;
 
     private int structureCT;
+
 
     public BattleMech(String name, List<Weapon> weaponList, int armorH, int armorLA, int armorLL, int armorLT, int armorRA, int armorRL, int armorRT, int armorCT, int structureH, int structureLA, int structureLL, int structureLT, int structureRA, int structureRL, int structureRT, int structureCT) {
         this.name = name;

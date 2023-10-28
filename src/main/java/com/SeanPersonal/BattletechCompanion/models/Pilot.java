@@ -1,5 +1,10 @@
 package com.SeanPersonal.BattletechCompanion.models;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Pilot extends AbstractEntity{
 
     private String name;
@@ -8,6 +13,7 @@ public class Pilot extends AbstractEntity{
 
     private int gunnerySkill;
 
+    @OneToOne (mappedBy = "cockpit")
     private BattleMech currentBattleMech;
 
     public Pilot(String name, int pilotSkill, int gunnerySkill) {

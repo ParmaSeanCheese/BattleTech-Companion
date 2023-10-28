@@ -1,8 +1,11 @@
 package com.SeanPersonal.BattletechCompanion.models;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import java.util.List;
 
-public class Weapon {
+@Entity
+public class Weapon extends AbstractEntity {
 
     private String name;
 
@@ -16,6 +19,7 @@ public class Weapon {
 
     private int rangeL;
 
+    @ManyToMany(mappedBy = "weaponList")
     private List<BattleMech> BattleMechList;
 
     public Weapon(String name, int heat, int damage, int rangeS, int rangeM, int rangeL) {
